@@ -1,13 +1,12 @@
-FROM nginx:1.9
+FROM nginx:latest
+MAINTAINER Zsolt Zsuffa "zsolt.zsuffa@gmail.com"
 
-#  default conf for proxy service
 COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./site1.conf /etc/nginx/conf.d/site1.conf
+COPY ./site2.conf /etc/nginx/conf.d/site2.conf
+COPY . /usr/share/nginx/html
 
-# NOT FOUND response
-COPY ./backend-not-found.html /var/www/html/backend-not-found.html
+# expose both the HTTP (80) and HTTPS (443) ports
+EXPOSE 80 443
 
-#  Proxy and SSL configurations
-COPY ./includes/ /etc/nginx/includes/
-
-# Proxy SSL certificates
-COPY ./ssl/ /etc/ssl/certs/nginx/
+CMD ["nginx"]

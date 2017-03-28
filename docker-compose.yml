@@ -5,6 +5,17 @@ networks:
     driver: bridge
 
 services:
+ proxy:
+  build: ./proxy
+  image: zsuffazs/proxy-nginx
+  ports:
+    - "80:80"
+  networks:
+    - prodnetwork
+  depends_on:
+    - site1
+    - site2
+
  site1:
   build: ./site1
   image: zsuffazs/proxy-site1
