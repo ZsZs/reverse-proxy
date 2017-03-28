@@ -9,7 +9,7 @@ services:
   build: ./site1
   image: zsuffazs/proxy-site1
   ports:
-    - "80:80"
+    - "8001:80"
   networks:
     - prodnetwork
 
@@ -17,6 +17,6 @@ services:
   build: ./site2
   image: zsuffazs/proxy-site2
   ports:
-    - "80:80"
+    - "8002:80"
   networks:
     - prodnetwork
