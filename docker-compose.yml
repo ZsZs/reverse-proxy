@@ -1,0 +1,22 @@
+version: '2'
+
+networks:
+  prodnetwork:
+    driver: bridge
+
+services:
+ site1:
+  build: ./site1
+  image: zsuffazs/proxy-site1
+  ports:
+    - "80:80"
+  networks:
+    - prodnetwork
+
+ site2:
+  build: ./site2
+  image: zsuffazs/proxy-site2
+  ports:
+    - "80:80"
+  networks:
+    - prodnetwork
