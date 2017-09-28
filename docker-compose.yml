@@ -10,7 +10,7 @@ services:
     image: zsuffazs/proxy-nginx
     container_name: proxy-nginx
     ports:
-      - "8000"
+      - "8000:80"
     networks:
       - prodnetwork
     depends_on:
@@ -22,7 +22,7 @@ services:
     image: zsuffazs/proxy-site1
     container_name: site1
     ports:
-      - "8001"
+      - "8001:80"
     environment:
       - VIRTUAL_HOST=site1.local
     networks:
@@ -33,7 +33,7 @@ services:
     image: zsuffazs/proxy-site2
     container_name: site2
     ports:
-      - "8002"
+      - "8002:80"
     environment:
       - VIRTUAL_HOST=site2.local
     networks:
