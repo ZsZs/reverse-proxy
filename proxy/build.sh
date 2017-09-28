@@ -1,2 +1,2 @@
 docker build -t zsuffazs/proxy-nginx .
-docker run -it -p 80:80 --name proxy-nginx zsuffazs/proxy-nginx
+winpty docker run -i -t -p 8000:80 --name proxy-nginx zsuffazs/proxy-nginx
