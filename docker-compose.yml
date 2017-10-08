@@ -9,6 +9,7 @@ services:
     build: ./proxy
     image: zsuffazs/proxy-nginx
     container_name: proxy-nginx
+    restart: always
     ports:
       - "8000:80"
     networks:
@@ -21,6 +22,7 @@ services:
     build: ./site1
     image: zsuffazs/proxy-site1
     container_name: site1
+    restart: always
     ports:
       - "8001:80"
     environment:
@@ -32,6 +34,7 @@ services:
     build: ./site2
     image: zsuffazs/proxy-site2
     container_name: site2
+    restart: always
     ports:
       - "8002:80"
     environment:
